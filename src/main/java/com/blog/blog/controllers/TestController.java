@@ -1,11 +1,16 @@
-package com.blog.blog.controller;
+package com.blog.blog.controllers;
 
-import com.blog.blog.service.TestService;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.blog.blog.models.Test;
+import com.blog.blog.services.TestService;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/test")
@@ -13,9 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     private final TestService testService;
-
+    
+    /**
+     * Methode qui retourne tous les tests
+     * 
+     * @return {@link List} {@link Test}
+     */
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String test() {
-        return testService.callService();
+    public List<Test> findAll(){
+    	return this.testService.findAll();
     }
 }
