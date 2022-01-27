@@ -24,7 +24,7 @@ public class TestController {
      * 
      * @return {@link List} {@link Test}
      */
-    @GetMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Test> findAll(){
     	return this.testService.findAll();
     }
