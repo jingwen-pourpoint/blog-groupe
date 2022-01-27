@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "com.blog.blog.repositories")
+@EnableMongoRepositories(basePackages = "com.blog.blog")
 public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override

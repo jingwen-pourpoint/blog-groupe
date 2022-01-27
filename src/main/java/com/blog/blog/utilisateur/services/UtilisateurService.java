@@ -31,5 +31,9 @@ public class UtilisateurService {
          utilisateurRepository.deleteById(utilisateurId);
     }
 
+    public Utilisateur updateUtilisateur(Utilisateur utilisateur){
+        return utilisateurRepository.save(utilisateur);
+    }
+
 
 }

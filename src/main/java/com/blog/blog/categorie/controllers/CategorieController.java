@@ -24,56 +24,32 @@ public class CategorieController {
 
     private final CategorieService categorieService;
     
-    /**
-     * Methode qui retourne tous les categories
-     * 
-     * @return {@link List} {@link Test}
-     */
-    @GetMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Categorie> findAll(){
     	return this.categorieService.findAll();
     }
     
-    /**
-	 * Methode qui retourne un categorie a partir de son id
-	 * 
-	 * @param id {@link String}
-	 * 
-	 * @return {@link Categorie}
-	 */
-    @GetMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Categorie findByID(@PathVariable String id) {
 		return this.categorieService.findById(id);
 	}
 	
-	/**
-	 * Methode qui sauvegarde un categorie
-	 * 
-	 * @param categorie {@link Categorie}
-	 * 
-	 * @return {@link Categorie}
-	 */
+
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Categorie save(@RequestBody Categorie categorie) {
 		return this.categorieService.save(categorie);
 	}
-	
-	/**
-	 * Methode qui supprime un categorie
-	 * 
-	 * @param categorie {@link Categorie}
-	 */
-    @DeleteMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+
+
+    @DeleteMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void delete(@RequestBody Categorie categorie) {
 		this.categorieService.delete(categorie);
 	}
 	
-	/**
-	 * Methode qui supprime un categorie a partir de son id
-	 * 
-	 * @param id {@link String}
-	 */
-    @DeleteMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @DeleteMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteById(@PathVariable String id) {
 		this.categorieService.deleteById(id);
 	}

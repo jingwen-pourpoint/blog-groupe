@@ -18,12 +18,12 @@ import lombok.ToString;
 public class ArticleDto {
     private String titre;
     private String slug;
-    private String Description;
+    private String description;
     private LocalDateTime dateCreation;
     private String contenu;
-    private UtilisateurDto auteur;
+    private String utilisateurId;
     private String image;
-    private CategorieDto categorie;
-    private List<TagDto> tags;
+    private String categoryId;
+    private List<String> tagIds;
 
 }

@@ -11,6 +11,6 @@ import lombok.ToString;
 @ToString
 public class CommentaireDto {
     private String contenu;
-    private UtilisateurDto utilisateur;
+    private String utilisateurId;
 
 }

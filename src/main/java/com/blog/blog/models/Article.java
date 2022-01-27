@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
 @Document
 @AllArgsConstructor
@@ -22,15 +25,15 @@ public class Article {
 	
 	private String description;
 	
-	private String dateDeCreation;
+	private LocalDateTime dateDeCreation;
 	
 	private String contenu;
 	
-	private String auteur;
+	private Utilisateur auteur;
 	
 	private String imageDePresentation;
 	
 	private Categorie categorie;
 	
-	private Tag tag;
+	private List<Tag> tags;
 }

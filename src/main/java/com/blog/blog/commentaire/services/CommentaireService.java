@@ -3,6 +3,10 @@ package com.blog.blog.commentaire.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.blog.blog.commentaire.dtos.CommentaireDto;
+import com.blog.blog.models.Utilisateur;
+import com.blog.blog.utilisateur.repositories.UtilisateurRepository;
+import com.blog.blog.utilisateur.services.UtilisateurService;
 import org.springframework.stereotype.Service;
 
 import com.blog.blog.commentaire.repositories.CommentaireRepository;
@@ -13,9 +17,12 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class CommentaireService {
+
+
 	
 	/* Repository du model Test */
 	private final CommentaireRepository commentaireRepository;
+	private final UtilisateurService utilisateurService;
 	
 	/**
 	 * Methode qui retourne tous les commentaires
@@ -45,7 +52,11 @@ public class CommentaireService {
 	 * 
 	 * @return {@link Commentaire}
 	 */
-	public Commentaire save(Commentaire commentaire) {
+	public Commentaire save(CommentaireDto commentaireDto) {
+		Utilisateur utilisateur = utilisateurService.getUtilisateur(commentaireDto.getUtilisateurId());
+		Commentaire commentaire = new Commentaire();
+		commentaire.setContenu(commentaireDto.getContenu());
+		commentaire.setUtilisateur(utilisateur);
 		return this.commentaireRepository.save(commentaire);
 	}
 	
