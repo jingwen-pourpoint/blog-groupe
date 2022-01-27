@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.blog.blog.models.Test;
+import com.blog.blog.repositories.TestRepository;
 
 import lombok.RequiredArgsConstructor;
-import repositories.TestRepository;
 
 @Service
 @RequiredArgsConstructor
