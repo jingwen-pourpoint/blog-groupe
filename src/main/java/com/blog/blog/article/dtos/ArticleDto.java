@@ -7,6 +7,7 @@ import com.blog.blog.categorie.dtos.CategorieDto;
 import com.blog.blog.tag.dtos.TagDto;
 import com.blog.blog.utilisateur.dtos.UtilisateurDto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,7 +20,7 @@ public class ArticleDto {
     private String titre;
     private String slug;
     private String description;
-    private LocalDateTime dateCreation;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd") private LocalDateTime dateCreation;
     private String contenu;
     private String utilisateurId;
     private String image;
