@@ -3,14 +3,13 @@ package com.blog.blog.commentaire.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.blog.blog.commentaire.dtos.CommentaireDto;
-import com.blog.blog.models.Utilisateur;
-import com.blog.blog.utilisateur.repositories.UtilisateurRepository;
-import com.blog.blog.utilisateur.services.UtilisateurService;
 import org.springframework.stereotype.Service;
 
+import com.blog.blog.commentaire.dtos.CommentaireDto;
 import com.blog.blog.commentaire.repositories.CommentaireRepository;
 import com.blog.blog.models.Commentaire;
+import com.blog.blog.models.Utilisateur;
+import com.blog.blog.utilisateur.services.UtilisateurService;
 
 import lombok.RequiredArgsConstructor;
 

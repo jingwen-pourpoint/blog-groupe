@@ -22,12 +22,17 @@ public class ConnexionService {
 	 * 
 	 * @return {@link boolean}
 	 */
-	public boolean connect(Utilisateur utilisateur) {
+	public Utilisateur connect(Utilisateur utilisateur) {
 		
 		/* Recuperation de l utilisateur sous forme d optional */
-		Optional<Utilisateur> optional = this.utilisateurRepository.findById(utilisateur.getId());
+		Optional<Utilisateur> optional = this.utilisateurRepository.findByEmail(utilisateur.getEmail());
 		
 		/* Verifie si la connexion est possible et renvoi le resultat */
-		return optional.isPresent() && optional.get().getPassword() == utilisateur.getPassword();
+		if(optional.isPresent() && optional.get().getPassword().equals(utilisateur.getPassword())) {
+			return optional.get();
+		}
+		else {
+			return null;
+		}
 	}
 }
